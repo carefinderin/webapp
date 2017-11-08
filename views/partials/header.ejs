@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Customer Details Panel</title>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/app.css">
+  </head>
+  <body>
+        <div class="ui menu">
+         <div class="ui container">    
+         <div class="header item">
+            Carefinder
+         </div>
+        <a  class="active item" href="/customerdetails">
+            Browse Leads
+        </a>
+        <a id="submitLead" class="item" href="/customerdetails/add">
+             Submit Lead
+        </a>
+        <a id="mailLeads" class="item" href="/customerdetails/mail">
+            Send Mail 
+        </a>
+        <div class="right menu">
+            <% if(!currentUser){ %>
+                <a id="deleteLead" href="/register" class="item">
+                   <p>Register</p>
+                </a>
+                <a id="deleteLeads" href="/login" class="item">
+                   Login
+                </a>
+                <% } else if(currentUser.isAdmin === true) { %>
+                <a id="deleteLead" href="/register" class="item">
+                   <p>Add New User</p>
+                </a>
+                <a id="deleteLead" href="#" class="item">
+                   <p> Hi <%=currentUser.username.toUpperCase()%> </p>
+                </a>
+                <a id="deleteLeads" href="/logout" class="item">
+                   Logout
+                </a>
+            <% } else { %>
+                <a id="deleteLead" href="#" class="item">
+                   <p> Hi <%=currentUser.username.toUpperCase()%> </p>
+                </a>
+                <a id="deleteLeads" href="/logout" class="item">
+                   Logout
+                </a>
+            <% } %>
+     </div>
+    </div> 
+    </div>
+    
+    <div class=" ui container">
+            <% if(error && error.length > 0) { %>
+            <div class="ui negative message">
+              <i class="close icon"></i>
+                <div class="header">
+                   Error!
+                </div>
+                <p><%=error%></p>
+            </div>
+            <% } %>
+            <% if(success && success.length > 0) { %>
+             <div class="ui success message">
+              <i class="close icon"></i>
+                <div class="header">
+                   Success
+                </div>
+                <p><%=success%></p>
+            </div>
+            <% } %>
+        </div>

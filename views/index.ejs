@@ -1,0 +1,45 @@
+<% include ./partials/header %>
+
+
+    <div class="ui container centerclass">
+        <div class="ui grid">
+         <div class="row">
+            <div class="four wide column">
+            </div>
+            <div class="eight wide column">
+                <h1 style="text-align:center">Customer Details</h1>
+                 <div class="ui container segment">
+                     <%customerObj.forEach(function(data){ %>
+                        <div class="item">
+                           <div class="content"> 
+                              <h4>Name - <%=data.customerName%></h4>
+                          </div>
+                      <div class="description">
+                          <p>Email - <%=data.customerEmail%></p>
+                          <p>Ph:No - <%=data.customerNumber%></p>
+                          <p>Details-<%= data.customerDetails%></p>
+                      </div>
+                      <div>
+                          <p><%=data.addedBy%></p>
+                      </div>
+                      <div>
+                         <p><a id="display-right" href="/customerdetails/<%=data._id%>" class="ui button green">Edit</a></p>
+                         <form action="/customerdetails/<%=data._id%>?_method=DELETE" method="POST" >
+                             <button class="ui button red"  >Delete</button>
+                         </form>
+                      </div>
+                      
+                      <hr class="style-two">
+                </div>  
+               <% }); %>
+           </div>
+            </div>
+            <div class="four wide column">
+            </div>
+         </div>    
+        </div>
+    </div>
+
+ 
+<% include ./partials/footer %>
+

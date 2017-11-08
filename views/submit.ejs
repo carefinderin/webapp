@@ -1,0 +1,28 @@
+<% include ./partials/header %>
+
+
+<div class="ui container segment centerclass" id="centered-width">
+<h1 style="text-align:center">Add Customer</h1>    
+<form class="ui form" action="/customerdetails" method="POST">
+  <div class="field">
+    <label>Customer Name</label>
+    <input type="text" name="customer[name]" placeholder="Customer Name">
+  </div>
+  <div class="field">
+      <label>Customer Email</label>
+      <input type="email" name="customer[email]" placeholder="Email" >
+  </div>
+  <div class="field">
+      <label>Customer Phone Number</label>
+      <input type="number" name="customer[phonenumber]" placeholder="Phone Number" >
+  </div>
+  <div class="field">
+    <label>Details</label>
+    <textarea name="customer[details]" placeholder="Customer Details"></textarea>
+  </div>
+  <button class="ui button green" type="submit">Submit</button>
+</form>
+</div>
+
+
+<% include ./partials/footer %>

@@ -1,0 +1,20 @@
+<% include ./partials/header %>
+
+
+<div class="ui container segment centerclass" id="centered-width">
+<h1 style="text-align:center">Login</h1>    
+<form class="ui form" action="/login" method="POST">
+  <div class="field">
+    <label>Username</label>
+    <input type="text" name="username" placeholder="Username">
+  </div>
+  <div class="field">
+      <label>Password</label>
+      <input type="password" name="password" placeholder="Password" >
+  </div>
+  <button class="ui button green" type="submit">Log In</button>
+</form>
+</div>
+
+
+<% include ./partials/footer %>

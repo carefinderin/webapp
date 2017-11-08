@@ -1,0 +1,28 @@
+<% include ./partials/header %>
+
+
+<div class="ui container segment centerclass" id="centered-width">
+<h1 style="text-align:center">Edit Customer <%=customerObj.customerName%></h1>    
+<form class="ui form" action="/customerdetails/<%=customerObj._id%>?_method=PUT" method="POST">
+  <div class="field">
+    <label>Customer Name</label>
+    <input type="text" name="customer[customerName]" value="<%=customerObj.customerName%>">
+  </div>
+  <div class="field">
+      <label>Customer Email</label>
+      <input type="email" name="customer[customerEmail]" value="<%=customerObj.customerEmail%>" >
+  </div>
+  <div class="field">
+      <label>Customer Phone Number</label>
+      <input type="number" name="customer[customerNumber]" value="<%=customerObj.customerNumber%>" >
+  </div>
+  <div class="field">
+    <label>Details</label>
+    <textarea name="customer[customerDetails]" placeholder="Customer Details"><%=customerObj.customerDetails%></textarea>
+  </div>
+  <button class="ui button green" type="submit">Submit</button>
+</form>
+</div>
+
+
+<% include ./partials/footer %>
